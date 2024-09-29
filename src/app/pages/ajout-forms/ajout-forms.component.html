@@ -1,0 +1,108 @@
+<div class="container">
+    <!-- field counts - groups -->
+    <div *ngIf="FormData.length > 0 && !submitted" class="card mt-5 mx-auto">
+        <div class="card-body">
+            <form> 
+                <div class="form-group row mt-3" *ngFor="let data of FormData; let i = index;" > 
+                    <div class="d-flex justify-content-between">
+                        <label class="col-form-label text-primary">Field {{i + 1}} : </label>
+                        <div>
+                            <button type="button" class="btn btn-secondary me-2" (click)="duplicateForms(i)"><i class="fa fa-files-o" aria-hidden="true"></i> Duplicate</button>
+                            <button type="button" class="btn btn-danger" (click)="removeForm(i)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                          <label class="form-label">Name</label>
+                          <input type="text" class="form-control" name="name{{i}}" [(ngModel)]="data.name">
+
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-label">Type</label>
+                            <select class="form-select form-select-lg" name="type{{i}}" [(ngModel)]="data.type">
+                                <option value="boolean">Boolean</option>
+                                <option value="checkbox">Checkbox</option>
+                                <option value="comment">Comment</option>
+                                <option value="dropdown">Dropdown</option>
+                                <option value="file">File</option>
+                                <option value="matrix">Matrix</option>
+                                <option value="radiogroup">RadioGroup</option>
+                                <option value="rating">Rating</option>
+                                <option value="text">Single Input</option>
+                                <option value="signaturepad">Signature pad</option>
+                                <option value="tagbox">Tag box</option>
+                                <option value="ranking">Ranking</option>
+                            </select>
+                        </div>
+                        <div class="form-check form-switch col-auto" style="margin-top:3rem ;">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Required</label>
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="isRequired{{i}}" [(ngModel)]="data.isRequired">
+                        </div>
+                    <div *ngIf="data.type == 'radiogroup' || data.type == 'checkbox' || data.type == 'tagbox' || data.type == 'dropdown' || data.type == 'ranking'">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-form-label">Multiselect : </div>
+                            <button type="button" class="btn btn-success" (click)="addMultiForm(i)">Choices</button>
+                        </div>
+                        <div class="form-group row mt-4" *ngFor="let data2 of data.multidata; let y = index;"> 
+                            <div class="col-auto">
+                                <label class="col-form-label">choice {{y + 1}}</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" name="multiTitle{{i}}{{y}}" [(ngModel)]="data2.multiTitle">
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-danger" (click)="removeOneMultiForm(i,y)">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="data.type == 'matrix'">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-form-label">Column : </div>
+                            <button type="button" class="btn btn-success" (click)="addMultiColumn(i)">Columns</button>
+                        </div>
+                        <div class="form-group row mt-4" *ngFor="let col of data.multicolumn; let y = index;"> 
+                            <div class="col-auto">
+                                <label class="col-form-label">Column {{y + 1}}</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" name="multiColumn{{i}}{{y}}" [(ngModel)]="col.multiColumn">
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-danger" (click)="removeColumn(i,y)">Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <div class="col-form-label">Row : </div>
+                            <button type="button" class="btn btn-success" (click)="addMultiRow(i)">Rows</button>
+                        </div>
+                        <div class="form-group row mt-4" *ngFor="let row of data.multirow; let y = index;"> 
+                            <div class="col-auto">
+                                <label class="col-form-label">Row {{y + 1}}</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" name="multiRow{{i}}{{y}}" [(ngModel)]="row.multiRow">
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-danger" (click)="removeRow(i,y)">Delete</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+        <button type="button" class="btn btn-primary mt-4 mb-4" style="width:6rem; margin-left:1rem" (click)="SaveForm()" >Create</button>
+
+    </div>
+    <div *ngIf="!submitted" class="col-md-12 text-center btn btn-success mt-2" (click)="addForm()">
+        <h6>Add More Fields</h6>
+    </div>
+    <div *ngIf="submitted" class="alert alert-success mt-5" role="alert">
+        A simple success Thank you ! <a routerLink="/formsList">check link</a>
+    </div>
+    <!-- End: field counts - groups -->
+
+</div>

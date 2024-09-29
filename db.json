@@ -1,0 +1,139 @@
+{
+  "forms": [
+    [
+      {
+        "type": "boolean",
+        "name": "boolean",
+        "isRequired": true
+      },
+      {
+        "choices": [
+          "choice 1",
+          "choice 2"
+        ],
+        "type": "checkbox",
+        "name": "checkbox",
+        "isRequired": true
+      },
+      {
+        "choices": [
+          "choice 1",
+          "choice 2"
+        ],
+        "type": "radiogroup",
+        "name": "radiogroup",
+        "isRequired": false,
+        "multiselect": []
+      },
+      {
+        "type": "comment",
+        "name": "comment",
+        "isRequired": true
+      },
+      {
+        "choices": [
+          "choice 1",
+          "choice 2"
+        ],
+        "type": "dropdown",
+        "name": "dropdown"
+      },
+      {
+        "columns": [
+          "C1",
+          "C2"
+        ],
+        "rows": [
+          "R1",
+          "R2"
+        ],
+        "type": "matrix"
+      },
+      {
+        "type": "rating",
+        "name": "Rating",
+        "isRequired": true
+      },
+      {
+        "type": "text",
+        "name": "Single input"
+      },
+      {
+        "type": "signaturepad",
+        "name": "Signature pad"
+      },
+      {
+        "choices": [
+          "choice 1",
+          "choice 3"
+        ],
+        "type": "tagbox",
+        "name": "tag box"
+      },
+      {
+        "name": "ranking",
+        "type": "ranking",
+        "isRequired": true
+      }
+    ],
+    [
+      {
+        "type": "boolean",
+        "name": "boolean",
+        "isRequired": true
+      },
+      {
+        "choices": [
+          "choice 2",
+          "choice 3"
+        ],
+        "type": "checkbox",
+        "name": "checkbox",
+        "isRequired": true
+      },
+      {
+        "choices": [
+          "choice 1",
+          "choice 2"
+        ],
+        "type": "dropdown",
+        "name": "dropdown",
+        "isRequired": true,
+        "multiselect": []
+      },
+      {
+        "choices": [
+          "choice 1",
+          "choice 2",
+          "choice 3"
+        ],
+        "type": "radiogroup",
+        "name": "radiogroup",
+        "isRequired": true,
+        "multiselect": []
+      },
+      {
+        "type": "comment",
+        "name": "comment"
+      },
+      {
+        "columns": [
+          "C1",
+          "C2"
+        ],
+        "rows": [
+          "R1",
+          "R2"
+        ],
+        "type": "matrix",
+        "name": "matrix",
+        "isRequired": true
+      },
+      {
+        "type": "signaturepad",
+        "name": "Signature pad",
+        "isRequired": true
+      }
+    ]
+  ]
+}

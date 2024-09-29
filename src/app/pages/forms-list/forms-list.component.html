@@ -1,0 +1,15 @@
+<table *ngIf="!selected && forms.length != 0" class="table container mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Forms</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let list of forms;let i = index;">
+        <tr>
+            <td>{{i + 1}}</td>
+            <td (click)="selectform(i);selected = true" style="cursor: pointer;font-weight: bold;">Form{{i + 1}}</td>
+        </tr>
+    </tbody>
+</table>
+<div id="surveyContainer"></div>
